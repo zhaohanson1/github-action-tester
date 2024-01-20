@@ -43,3 +43,7 @@ version-resolver:
 exclude-labels:
   - 'skip-changelog'
 replacers:
+  - search: '(?<=### Release Notes\n\n)(.*?)(?=\n### End Release Notes)'
+  - replace: |
+      ### Release Notes
+      $1
