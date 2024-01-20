@@ -1,8 +1,6 @@
-# Describe Changes
+### Describe Changes
 
-## Release Notes
-
-## Change Type
+### Change Type
 
 Indicate the type of change your pull request is:
 
@@ -10,3 +8,7 @@ Indicate the type of change your pull request is:
 - [ ] `patch`
 - [ ] `minor`
 - [ ] `major`
+
+### Release Notes
+
+### End Release Notes
