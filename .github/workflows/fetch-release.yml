@@ -39,7 +39,7 @@ jobs:
         run: |
           NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
           EXISTS=$(git show-ref refs/heads/${NEW_BRANCH})
-          echo NEW_BRANCH
+          echo $NEW_BRANCH
           if [ -z "$EXISTS" ]; then
             # Create new branch
             git checkout -b ${NEW_BRANCH}
