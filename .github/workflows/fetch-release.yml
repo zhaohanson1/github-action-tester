@@ -52,6 +52,4 @@ jobs:
           gh pr create -B ${BASE_BRANCH} -H main --title "Merge ${NEW_BRANCH} into main" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEW_BRANCH: release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)
-
 
