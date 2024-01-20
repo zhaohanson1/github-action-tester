@@ -35,6 +35,7 @@ jobs:
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
+          git config --global push.autoSetupRemote true
       - name: Checkout branch
         run: |
           NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
