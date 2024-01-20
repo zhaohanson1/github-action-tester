@@ -49,6 +49,6 @@ jobs:
         run: |
           BASE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           MAIN_BRANCH='main'
-          gh pr create -B ${BASE_BRANCH} -H ${MAIN_BRANCH} --title "Update latest release" --body 'Created by Github action'
+          gh pr create -H ${BASE_BRANCH} -B ${MAIN_BRANCH} --title "Update latest release" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
