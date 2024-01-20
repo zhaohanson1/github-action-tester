@@ -31,25 +31,27 @@ jobs:
           # Replace the original file with the temporary file
           mv temp.txt latest_release.txt
 
-      - name: Commit and push if it changed
+      - name: Set Up git config
         run: |
-          NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
-          BASE_BRANCH="main"
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
-
-          # Check if branch exists
+      - name: Checkout branch
+        run: |
           EXISTS=$(git show-ref refs/heads/${NEW_BRANCH})
           if [ -z "$EXISTS" ]; then
             # Create new branch
             git checkout -b ${NEW_BRANCH}
           fi
-          
+        env:
+          NEW_BRANCH: release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)
+      - name: Commit and push if it changed
+        run: |
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
           git push origin ${NEW_BRANCH}
-          gh pr create -B ${BASE_BRANCH} -H ${NEW_BRANCH} --title "Merge ${NEW_BRANCH} into ${BASE_BRANCH}" --body 'Created by Github action'
+          gh pr create -B ${BASE_BRANCH} -H main --title "Merge ${NEW_BRANCH} into main" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_BRANCH: release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)
 
 
