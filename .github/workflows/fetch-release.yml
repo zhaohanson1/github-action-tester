@@ -46,7 +46,7 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
           git push
       - name: Create PR
-        run: gh pr create -B ${BASE_BRANCH} -H main --title "Merge ${NEW_BRANCH} into main" --body 'Created by Github action'
+        run: gh pr create -B ${BASE_BRANCH} -H "main" --title "Merge ${NEW_BRANCH} into main" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
