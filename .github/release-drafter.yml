@@ -47,5 +47,5 @@ replacers:
     replace: ''
   - search: '/(### Change Type)\s*([\s\S]*?)\s*(?=### Additional Release Notes)/g'
     replace: ''
-  - search: '/(### Additional Release Notes)\s*([\s\S]*?)\s*(?=### End Release Notes)/g'
+  - search: '/(### Additional Release Notes)\s*([\s\S]*?)\s*(### End Release Notes)/g'
     replace: '  - $2'
