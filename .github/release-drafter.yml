@@ -45,7 +45,7 @@ exclude-labels:
 replacers:
   - search: '/(### Describe Changes)\s*([\s\S]*?)\s*(?=### Change Type)/g'
     replace: ''
-  - search: '/(### Change Type)\s*([\s\S]*?)\s*(?=### Release Notes)/g'
+  - search: '/(### Change Type)\s*([\s\S]*?)\s*(?=### Additional Release Notes)/g'
     replace: ''
-  - search: '/(.*### Release Notes\n\n)(.*?)(\n### End Release Notes.*)/g'
-    replace: '  - $1'
+  - search: '/(### Additional Release Notes)\s*([\s\S]*?)\s*(?=### End Release Notes)/g'
+    replace: '  - $2'
