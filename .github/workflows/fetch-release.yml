@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Fetch latest release
         run: |
@@ -31,24 +31,24 @@ jobs:
           # Replace the original file with the temporary file
           mv temp.txt latest_release.txt
 
-      - name: Commit and push if it changed
+      - name: Set Up git config
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
+          git config --global push.autoSetupRemote true
+      - name: Checkout branch
+        run: |
+          NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
+          git checkout -b ${NEW_BRANCH}
+      - name: Commit and push if it changed
+        run: |
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
-      - name: Create Pull Request
+          git push origin ${NEW_BRANCH}
+      - name: Create PR
         run: |
-          OWNER="${{ github.repository_owner }}"
-          REPO="${{ github.repository }}"
-          TOKEN="${{ secrets.GITHUB_TOKEN }}"
-          NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
-          BASE_BRANCH="main"
-          
-          # Create a pull request
-          curl -X POST "https://api.github.com/repos/${OWNER}/${REPO}/pulls" \
-               -H "Authorization: token $TOKEN" \
-               -d '{ "title": "Amazing new feature",
-                      "body": "Please pull this in!",
-                      "head": "'"${NEW_BRANCH}"'",
-                      "base": "'"${BASE_BRANCH}"'" }' 
+          BASE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          MAIN_BRANCH='main'
+          gh pr create -H ${BASE_BRANCH} -B ${MAIN_BRANCH} --title "Update latest release" --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
