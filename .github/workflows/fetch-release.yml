@@ -43,7 +43,7 @@ jobs:
         run: |
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
-          git push origin ${NEW_BRANCH}
+          git push --set-upstream origin ${NEW_BRANCH}
           gh pr create -B ${BASE_BRANCH} -H main --title "Merge ${NEW_BRANCH} into main" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
