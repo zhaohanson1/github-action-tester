@@ -1,0 +1,45 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+change-template: |
+  #### $TITLE - $AUTHOR ([$NUMBER]($URL))
+  $BODY
+  
+template: |
+  
+  ### Release Notes
+  
+  $CHANGES
+
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
+categories:
+  - title: 'Breaking'
+    label: 'breaking'
+  - title: 'New'
+    label: 'enhancement'
+  - title: 'Bug Fixes'
+    label: 'bug'
+  - title: 'Documentation'
+    label: 'docs'
+  - title: 'Other changes'
+  - title: 'Dependency Updates'
+    label: 'dependencies'
+    collapse-after: 5
+
+version-resolver:
+  major:
+    labels:
+      - 'breaking'
+  minor:
+    labels:
+      - 'feature'
+  patch:
+    labels:
+      - 'bug'
+      - 'maintenance'
+      - 'docs'
+      - 'dependencies'
+      - 'security'
+
+exclude-labels:
+  - 'skip-changelog'
