@@ -48,7 +48,8 @@ jobs:
           # Create a pull request
           curl -X POST "https://api.github.com/repos/${OWNER}/${REPO}/pulls" \
                -H "Authorization: token $TOKEN" \
-               -d '{ "title": "Amazing new feature",
-                      "body": "Please pull this in!",
-                      "head": "'"${NEW_BRANCH}"'",
-                      "base": "'"${BASE_BRANCH}"'" }' 
+               -d "{ \"title\": \"Amazing new feature\",
+                      \"body\": \"Please pull this in!\",
+                      \"head\": \"${NEW_BRANCH}\",
+                      \"base\": \"${BASE_BRANCH}\" }"
+
