@@ -33,14 +33,21 @@ jobs:
 
       - name: Commit and push if it changed
         run: |
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
-      - name: Create Pull Request
-        run: |
           NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
           BASE_BRANCH="main"
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+
+          # Check if branch exists
+          EXISTS=$(git show-ref refs/heads/${NEW_BRANCH})
+          if [ -z "$EXISTS" ]; then
+            # Create new branch
+            git checkout -b ${NEW_BRANCH}
+          fi
+          
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
+          git push origin ${NEW_BRANCH}
           gh pr create -B ${BASE_BRANCH} -H ${NEW_BRANCH} --title "Merge ${NEW_BRANCH} into ${BASE_BRANCH}" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
