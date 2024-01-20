@@ -9,6 +9,6 @@ Indicate the type of change your pull request is:
 - [ ] `minor`
 - [ ] `major`
 
-### Release Notes
+### Additional Release Notes
 
 ### End Release Notes
