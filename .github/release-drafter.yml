@@ -1,12 +1,11 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 change-template: |
-  #### $TITLE - $AUTHOR ([$NUMBER]($URL))
+  - $TITLE - @$AUTHOR ([#$NUMBER]($URL))
   $BODY
-  
 template: |
   
-  ### Release Notes
+  # Release Notes
   
   $CHANGES
 
@@ -43,3 +42,8 @@ version-resolver:
 
 exclude-labels:
   - 'skip-changelog'
+replacers:
+  - search: '(?<=### Release Notes\n\n)(.*?)(?=\n### End Release Notes)'
+  - replace: |
+      ### Release Notes
+      $1
