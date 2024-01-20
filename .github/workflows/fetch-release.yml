@@ -44,11 +44,11 @@ jobs:
         run: |
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Update to latest release"
-          git push
+          git push origin ${NEW_BRANCH}
       - name: Create PR
         run: |
           BASE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          NEW_BRANCH='main'
-          gh pr create -B ${BASE_BRANCH} -H ${NEW_BRANCH} --title "Update latest release" --body 'Created by Github action'
+          MAIN_BRANCH='main'
+          gh pr create -B ${BASE_BRANCH} -H ${MAIN_BRANCH} --title "Update latest release" --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
