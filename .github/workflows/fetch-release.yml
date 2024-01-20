@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Fetch latest release
         run: |
@@ -38,12 +38,7 @@ jobs:
       - name: Checkout branch
         run: |
           NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
-          EXISTS=$(git show-ref refs/heads/${NEW_BRANCH})
-          echo $NEW_BRANCH
-          if [ -z "$EXISTS" ]; then
-            # Create new branch
-            git checkout -b ${NEW_BRANCH}
-          fi
+          git checkout -b ${NEW_BRANCH}
       - name: Commit and push if it changed
         run: |
           git add -A
