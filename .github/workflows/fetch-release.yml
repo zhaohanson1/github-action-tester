@@ -37,13 +37,12 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
       - name: Checkout branch
         run: |
+          NEW_BRANCH="release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)"
           EXISTS=$(git show-ref refs/heads/${NEW_BRANCH})
           if [ -z "$EXISTS" ]; then
             # Create new branch
             git checkout -b ${NEW_BRANCH}
           fi
-        env:
-          NEW_BRANCH: release_${{ inputs.owner }}_${{ inputs.repo }}_$(date +%s)
       - name: Commit and push if it changed
         run: |
           git add -A
