@@ -12,7 +12,7 @@ template: |
 
 categories:
   - title: 'Breaking'
-    label: 'breaking'
+    label: 'BREAKING'
   - title: 'New'
     label: 'enhancement'
   - title: 'Bug Fixes'
