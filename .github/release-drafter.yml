@@ -1,9 +1,9 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
-change-template: '([#$NUMBER]($URL)) $TITLE'
+change-template: '$TITLE - ([#$NUMBER]($URL))'
 template: |
   
-  # Release Notes
+  # Release Notes v$RESOLVED_VERSION
   
   $CHANGES
 
