@@ -4,10 +4,8 @@ change-template: '$TITLE - ([#$NUMBER]($URL))'
 template: |
   
   # Release Notes
-
-  ***
   $CHANGES
-
+  ---
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
 categories:
