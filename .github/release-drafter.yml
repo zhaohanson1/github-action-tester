@@ -2,7 +2,7 @@ name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 change-template: |
   - $TITLE - ([#$NUMBER]($URL))
-  $BODY
+    $BODY
 template: |
   
   # Release Notes
@@ -45,7 +45,7 @@ exclude-labels:
 replacers:
   - search: '/<!--.*?-->/gs' # Match and remove all Markdown comments.
     replace: ''
-  - search: '(## Summary)\s*([\s\S]*?)\s*(## Release Notes)' # Match and remove summary and release note title
+  - search: '/(## Summary)\s*([\s\S]*?)\s*(## Release Notes)/g' # Match and remove summary and release note title
     replace: ''
   - search: '/^\n/gm' # Remove standalone newlines
     replace: ''
