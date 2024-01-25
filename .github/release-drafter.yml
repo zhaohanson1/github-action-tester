@@ -1,10 +1,11 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
-change-template: '([#$NUMBER]($URL)) $TITLE'
+change-template: '$TITLE - ([#$NUMBER]($URL))'
 template: |
   
   # Release Notes
-  
+
+  ***
   $CHANGES
 
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
@@ -40,3 +41,11 @@ version-resolver:
 
 exclude-labels:
   - 'skip-changelog'
+
+replacers:
+  - search: '/<!--.*?-->/gs' # Match and remove all Markdown comments.
+    replace: ''
+  - search: '(## Summary)\s*([\s\S]*?)\s*(## Release Notes)' # Match and remove summary and release note title
+    replace: '$2'
+  - search: '/^\n/gm' # Remove standalone newlines
+  - replace: ''

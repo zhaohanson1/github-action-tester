@@ -1,13 +1,14 @@
-### Release Notes
-<-- Add any additional information about this change that will be placed in the release notes. -->
+<!-- Ensure the PR title concisely encapsulates the changes made. This will be used for the changelog. -->
 
-### Describe Changes
+## Summary
+<!-- 
+  Describe your code changes.
+  Add any relevant links that may help with review (Jira / Sketch / Design Lab).
+-->
 
-### Change Type
 
-Indicate the type of change your pull request is:
+## Release Notes
+<!-- 
+  Add any additional information you would like to be announced in the release notes 
+-->
 
-- [ ] `documentation`
-- [ ] `patch`
-- [ ] `minor`
-- [ ] `major`
