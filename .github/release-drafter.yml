@@ -9,10 +9,14 @@ template: |
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
 categories:
-  - title: 'Breaking'
+  - title: 'Breaking Changes'
     label: 'BREAKING'
   - title: 'New'
-    label: 'enhancement'
+    label: 
+      - 'feature'
+  - title: 'Changes'
+    label:
+      - 'enhancement'
   - title: 'Bug Fixes'
     label: 'bug'
   - title: 'Documentation'
