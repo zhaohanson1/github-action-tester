@@ -8,9 +8,10 @@ template: |
   ---
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
-categories:
-  - title: 'Breaking'
-    label: 'BREAKING'
+categories: 
+# Supported labels: ['breaking', 'enhancement', 'docs', 'bug', 'dependencies', 'security']
+  - title: 'Breaking Changes'
+    label: 'breaking'
   - title: 'New'
     label: 'enhancement'
   - title: 'Bug Fixes'
@@ -28,11 +29,10 @@ version-resolver:
       - 'breaking'
   minor:
     labels:
-      - 'feature'
+      - 'enhancement'
   patch:
     labels:
       - 'bug'
-      - 'maintenance'
       - 'docs'
       - 'dependencies'
       - 'security'
