@@ -47,3 +47,4 @@ replacers:
   - search: '(## Summary)\s*([\s\S]*?)\s*(## Release Notes)' # Match and remove summary
     replace: '$2'
   - search: '/^\n/gm' # Remove standalone newlines
+  - replace: ''
