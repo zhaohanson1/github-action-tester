@@ -40,3 +40,10 @@ version-resolver:
 
 exclude-labels:
   - 'skip-changelog'
+
+replacers:
+  - search: '/<!--.*?-->/gs' # Match and remove all Markdown comments.
+    replace: ''
+  - search: '(## Summary)\s*([\s\S]*?)\s*(## Release Notes)' # Match and remove summary
+    replace: '$2'
+  - search: '/^\n/gm' # Remove standalone newlines
