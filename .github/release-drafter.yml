@@ -12,16 +12,16 @@ template: |
 
 categories: 
 # Supported labels: ['breaking', 'enhancement', 'docs', 'bug', 'dependencies', 'security']
-  - title: 'Breaking Changes'
+  - title: '💥 Breaking Changes'
     label: 'breaking'
-  - title: 'New'
+  - title: '🚀 Features'
     label: 'enhancement'
-  - title: 'Bug Fixes'
+  - title: '🐛 Bug Fixes'
     label: 'bug'
-  - title: 'Documentation'
+  - title: '📄 Documentation'
     label: 'docs'
-  - title: 'Other changes'
-  - title: 'Dependency Updates'
+  - title: '🚰 Other Changes'
+  - title: '🔧 Dependency Updates'
     label: 'dependencies'
     collapse-after: 5
 
