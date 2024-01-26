@@ -3,6 +3,7 @@ tag-template: 'v$RESOLVED_VERSION'
 change-template: |
   - $TITLE - ([#$NUMBER]($URL))
     $BODY
+    
 template: |
   
   # Release Notes
@@ -48,6 +49,6 @@ replacers:
     replace: ''
   - search: '/(## Summary)\s*([\s\S]*?)\s*(## Release Notes)/g' # Match and remove summary and release note title
     replace: ''
-  - search: '/^\s*\n+$/gm' # Remove multiple newlines and replace with two newlines
+  - search: '/^\s*\n+$/gm' # Remove multiple newlines and replace one newlines
     replace: ''
 
