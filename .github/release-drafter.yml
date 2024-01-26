@@ -44,7 +44,7 @@ version-resolver:
 exclude-labels:
   - 'skip-changelog'
 
-replacers: # search: JS Regex string; replace: JS string
+replacers:
   - search: '/<!--.*?-->/gs' # Match and remove all Markdown comments.
     replace: ''
   - search: '/(## Summary)\s*([\s\S]*?)\s*(## Release Notes)/g' # Match and remove summary and release note title
