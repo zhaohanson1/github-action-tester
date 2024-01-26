@@ -7,6 +7,7 @@ template: |
   
   # Release Notes
   $CHANGES
+  
   ---
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
@@ -48,5 +49,4 @@ replacers:
   - search: '/(## Summary)\s*([\s\S]*?)\s*(## Release Notes)/g' # Match and remove summary and release note title
     replace: ''
   - search: '/^\n+/gm' # Remove multiple newlines and replace with two newlines
-    replace: |
-    # end replace
+    replace: 'a'
