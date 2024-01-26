@@ -51,6 +51,7 @@ replacers:
     replace: ''
   - search: '/^\s*\n{2,}/gm' # Remove multiple newlines and replace two newlines
     replace: |
-
-
-    # end replace
+    <!-- -->
+    <!-- -->
+  # end replace
+    
