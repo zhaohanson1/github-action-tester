@@ -49,8 +49,5 @@ replacers:
     replace: ''
   - search: '/(## Summary)\s*([\s\S]*?)\s*(## Release Notes)/g' # Match and remove summary and release note title
     replace: ''
-  - search: '/^\s*\n{1,}$/gm' # Remove multiple newlines and replace two newlines
-    replace: |
-
-      
-  # end replace
+  - search: '/^\s*\n{2,}/gm' # Remove multiple newlines and replace two newlines
+    replace: ''
