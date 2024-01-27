@@ -29,10 +29,10 @@ jobs:
           
 
           # Append the original file content to the temporary file
-          cat latest_release.txt >> temp.txt
+          cat latest_release.md >> temp.txt
 
           # Replace the original file with the temporary file
-          mv temp.txt latest_release.txt
+          mv temp.txt latest_release.md
 
       - name: Set Up git config
         run: |
