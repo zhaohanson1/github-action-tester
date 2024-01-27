@@ -20,10 +20,13 @@ jobs:
           RELEASE=$(curl --silent "https://api.github.com/repos/${{inputs.owner}}/${{inputs.repo}}/releases/latest")
 
           # Extract the release body to a variable
+          RELEASE_NAME=$(echo $RELEASE | jq -r .name)
           RELEASE_BODY=$(echo $RELEASE | jq -r .body)
 
-          # Write the release body to a temporary file
-          echo "$RELEASE_BODY" > temp.txt
+          # Write the release title and body to a temporary file
+          echo "# $RELEASE_NAME" > temp.txt
+          echo "$RELEASE_BODY" >> temp.txt
+          
 
           # Append the original file content to the temporary file
           cat latest_release.txt >> temp.txt
