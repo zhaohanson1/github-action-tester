@@ -13,7 +13,7 @@ template: |
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
 categories: 
-# Supported labels: ['breaking', 'enhancement', 'docs', 'bug', 'dependencies', 'security']
+# Supported labels: ['breaking', 'enhancement', 'docs', 'bug', 'dependencies', 'security', 'major', 'minor', 'patch']
   - title: '💥 Breaking Changes'
     label: 'breaking'
   - title: '🚀 Features'
@@ -30,16 +30,13 @@ categories:
 version-resolver:
   major:
     labels:
-      - 'breaking'
+      - 'major'
   minor:
     labels:
-      - 'enhancement'
+      - 'minor'
   patch:
     labels:
-      - 'bug'
-      - 'docs'
-      - 'dependencies'
-      - 'security'
+      - 'patch'
 
 exclude-labels:
   - 'skip-changelog'
